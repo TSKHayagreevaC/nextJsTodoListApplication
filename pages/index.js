@@ -1,6 +1,6 @@
 // our-domamain.com/
 import Head from 'next/head'
-import { useEffect, useState } from 'react/cjs/react.development';
+import { useEffect, useState } from 'react';
 import TodoListItem from '../components/TodoListItem'
 
 function TodosListHomePage(props) {
@@ -10,7 +10,8 @@ function TodosListHomePage(props) {
         const todosData = localStorage.getItem("todosData");
         if (todosData !== null) {
             const todosParsedData = JSON.parse(todosData)
-            setTodosDisplayData([...todosParsedData])
+            console.log(todosParsedData)
+            setTodosDisplayData(todosParsedData)
         } else {
             setIsTodoEmpty(true)
         }
