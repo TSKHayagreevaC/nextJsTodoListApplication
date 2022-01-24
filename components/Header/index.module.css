@@ -1,0 +1,28 @@
+.header {
+    height: 50px;
+    width: 100%;
+    background-color: #9AD0EC;
+    position: fixed;
+    overflow: hidden;
+    top: 0px;
+    
+    }
+
+.list {
+    height: 50px;
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item {
+    margin: 10px;
+    align-self: center;
+    border: 2px solid #1A1A40;
+    padding: 5px;
+    border-radius: 5px;
+}

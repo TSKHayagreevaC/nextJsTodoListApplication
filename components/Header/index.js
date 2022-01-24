@@ -1,13 +1,14 @@
 import Link from "next/link"
+import classes from "./index.module.css"
 
 function Header() {
     return (
-        <nav>
-            <ul>
-                <li>
+        <nav className={classes.header}>
+            <ul className={classes.list}>
+                <li className={classes.item}>
                     <Link href="/">Home</Link>
                 </li>
-                <li><Link href="/add_todo">Add Todo</Link></li>
+                <li className={classes.item}><Link href="/add_todo">Add Todo</Link></li>
             </ul>
         </nav>
     )

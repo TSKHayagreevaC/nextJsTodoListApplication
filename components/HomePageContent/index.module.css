@@ -1,0 +1,24 @@
+.container {
+    margin: 50px 0px 0px 0px;
+    width: 100%;
+}
+
+.heading {
+    margin: 10px;
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.empty {
+    text-align: center;
+    color:brown;
+    margin: 5px;
+}
+
+.list {
+    list-style-type: none;
+    margin: 10px;
+    padding: 0px;
+}

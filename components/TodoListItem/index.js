@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import {useRouter} from 'next/router'
+import classes from './index.module.css'
 
 function TodoListItem(props) {
     const {eachItem} = props
@@ -21,7 +22,6 @@ function TodoListItem(props) {
             todosDataArray.splice(indexOfCurrentTodo, 1, modifiedTodo);
             localStorage.setItem("todosData", JSON.stringify(todosDataArray));
         }
-        setTodoState(!todoState)
     }
 
     const router = useRouter();
@@ -30,10 +30,10 @@ function TodoListItem(props) {
     }
     
     return (
-        <li>
-            <input type="checkbox" defaultChecked ={todoState} onChange={changeTodoStatus}/>
-            <h1>{eachItem.title}</h1>
-            <button type="button" onClick={showTodoDetails}>Show Details</button>    
+        <li className={classes.container}>
+            <input className={classes.checkbox} type="checkbox" defaultChecked ={todoState} onChange={changeTodoStatus}/>
+            <h1 className={classes.title}>{eachItem.title}</h1>
+            <button className={classes.button} type="button" onClick={showTodoDetails}>View</button>    
         </li>
     )
 }

@@ -19,7 +19,6 @@ function TodoItemDetails() {
                 <title>Todos / {todoItemDetails.title}</title>
                 <meta name="description" content={todoItemDetails.description} />
             </Head>
-            <h1>Todo Item Details</h1>
             <TodoListItemDetails eachTodo={todoItemDetails} />
         </div>
     )

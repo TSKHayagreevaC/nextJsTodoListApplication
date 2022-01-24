@@ -1,6 +1,8 @@
 import {useRef} from 'react';
 import Head from 'next/head';
 
+import classes from './index.module.css';
+
 function AddTodo() {
     const titleInputRef = useRef();
     const descriptionInputRef = useRef();
@@ -22,9 +24,16 @@ function AddTodo() {
                 description: newTodoDescription,
                 status: newTodoStatus,
             }
-            const todosData = []
-            todosData.push(newTodo)
-            localStorage.setItem('todosData', JSON.stringify(todosData));
+            
+            if (newTodo.title.length === 0) {
+                alert('please enter a valid title');
+            } else if (newTodo.description.length === 0) {
+                alert('please add a valid description')
+            } else {
+                const todosData = []
+                todosData.push(newTodo)
+                localStorage.setItem('todosData', JSON.stringify(todosData));
+            }
         } else {
             const todosDataArray = JSON.parse(todosData)
             const newTodo = {
@@ -33,29 +42,35 @@ function AddTodo() {
                 description: newTodoDescription,
                 status: newTodoStatus,
             }
-            todosDataArray.push(newTodo);
-            localStorage.setItem('todosData', JSON.stringify(todosDataArray))
+            if (newTodo.title.length === 0) {
+                alert('please enter a valid title');
+            } else if (newTodo.description.length === 0) {
+                alert('please add a valid description')
+            } else {
+                todosDataArray.push(newTodo);
+                localStorage.setItem('todosData', JSON.stringify(todosDataArray))
+            }
         }
 
     }
     return (
-    <div>
+    <div className={classes.container}>
         <Head>
             <title>Add Todo Here...</title>
             <meta name="description" content="add a todo, description and status here..." />
         </Head>
-        <h1>Add A Todo Item</h1>
-        <form onSubmit={handleSubmittedData}>
-            <label htmlFor='todoTitle'>Todo Title</label>
-            <input type="text" id="todoTitle" ref={titleInputRef}/>
-            <label htmlFor='todoDescription'>Todo Description</label>
-            <input type="text" id="todoDescription" ref={descriptionInputRef}/>
-            <label htmlFor='todoStatus'>Todo Status</label>
-            <select id="todoStatus" ref={statusInputRef}>
+        <h1 className={classes.heading}>Add A Todo</h1>
+        <form className={classes.form} onSubmit={handleSubmittedData}>
+            <label className={classes.label} htmlFor='todoTitle'>Title</label>
+            <input className={classes.input} type="text" id="todoTitle" ref={titleInputRef}/>
+            <label className={classes.label} htmlFor='todoDescription'>Description</label>
+            <input className={classes.input} type="text" id="todoDescription" ref={descriptionInputRef}/>
+            <label className={classes.label} htmlFor='todoStatus'>Status</label>
+            <select className={classes.input}  id="todoStatus" ref={statusInputRef}>
                 <option>completed</option>
                 <option>yet to be completed</option>
             </select>
-            <button>Add Todo Item</button>
+            <button className={classes.button}>Add Todo</button>
         </form>
     </div>)
 }
