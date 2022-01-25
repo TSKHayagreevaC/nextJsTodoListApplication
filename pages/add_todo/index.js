@@ -60,7 +60,7 @@ function AddTodo() {
             <meta name="description" content="add a todo, description and status here..." />
         </Head>
         <h1 className={classes.heading}>Add A Todo</h1>
-        <form className={classes.form} onSubmit={handleSubmittedData}>
+        <form id="addTodoForm" className={classes.form} onSubmit={handleSubmittedData}>
             <label className={classes.label} htmlFor='todoTitle'>Title</label>
             <input className={classes.input} type="text" id="todoTitle" ref={titleInputRef}/>
             <label className={classes.label} htmlFor='todoDescription'>Description</label>

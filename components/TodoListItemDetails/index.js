@@ -3,7 +3,6 @@ import classes from './index.module.css';
 function TodoListItemDetails(props) {
     const eachItemDetails = props
     const {id, title, description, status} = eachItemDetails.eachTodo
-    console.log(id, status)
     return (
         <div className={classes.details}>
             <div className={classes.firstrow}>

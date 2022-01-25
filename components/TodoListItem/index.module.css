@@ -17,6 +17,7 @@
 .title {
     font-size: 22px;
     color: #2196F3;
+    width: 30%;
 }
 
 .button {
@@ -35,4 +36,9 @@
 
 .notbgcolor {
     background-color: #DA1212;
+}
+
+.red {
+    border: 2px solid red;
+    color: red;
 }

@@ -3,7 +3,7 @@ import TodoListItem from "../TodoListItem"
 import classes from './index.module.css'
 
 function HomePageContent(props) {
-    const {isTodoListEmpty, todosDisplayData} = props
+    const {isTodoListEmpty, todosDisplayData, deleteTodo} = props
     function renderEmptyTodosPage() {
         return (
             <div>
@@ -15,7 +15,7 @@ function HomePageContent(props) {
         return (
             <ul className={classes.list}>
                 {todosDisplayData.map(eachItem => {
-                return <TodoListItem key={eachItem.id} eachItem={eachItem} />
+                return <TodoListItem key={eachItem.id} eachItem={eachItem} deleteTodo={deleteTodo}/>
                 })}
             </ul>
         )

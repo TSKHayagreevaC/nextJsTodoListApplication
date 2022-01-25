@@ -3,7 +3,7 @@ import {useRouter} from 'next/router'
 import classes from './index.module.css'
 
 function TodoListItem(props) {
-    const {eachItem} = props
+    const {eachItem, deleteTodo} = props
     const todoStatus = eachItem.status === "completed" ? true : false 
     const [todoState, setTodoState] = useState(todoStatus)
     function changeTodoStatus() {
@@ -28,12 +28,17 @@ function TodoListItem(props) {
     function showTodoDetails() {
         router.push('/'+eachItem.id)
     }
+
+    function onClickDeleteTodo() {
+        deleteTodo(eachItem.id)
+    }
     
     return (
         <li className={classes.container}>
             <input className={classes.checkbox} type="checkbox" defaultChecked ={todoState} onChange={changeTodoStatus}/>
             <h1 className={classes.title}>{eachItem.title}</h1>
-            <button className={classes.button} type="button" onClick={showTodoDetails}>View</button>    
+            <button className={classes.button} type="button" onClick={showTodoDetails}>View</button>
+            <button className={`${classes.button} ${classes.red}`} type="button" onClick={onClickDeleteTodo}>Delete</button>   
         </li>
     )
 }
